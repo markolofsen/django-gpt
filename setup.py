@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setup(
     name='django-gpt',
-    version='1.0.0',
+    version='1.0.1',
     description='Integrate powerful text generators like GPT-3 and GPT-4 into your Django application for automated text generation based on instructions.',
     long_description=long_description,
     long_description_content_type="text/x-rst",
