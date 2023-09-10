@@ -17,7 +17,7 @@ pip install django-gpt
 
 ```python
 from django.db import models
-from django_gpt.models import DjapgoGptField
+from django_gpt.models import DjangoGptField
 
 class PropertyModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -27,7 +27,7 @@ class PropertyModel(models.Model):
     gpt_instruction = models.TextField(
         default='', blank=True, help_text='GPT instruction')
 
-    description_html = DjapgoGptField(
+    description_html = DjangoGptField(
         type="html",
         field_instruction_name="gpt_instruction",
         gpt_role="You're a real estate agent and you're writing a description for a property.",
@@ -38,7 +38,7 @@ class PropertyModel(models.Model):
         blank=True,
     )
 
-    description_text = DjapgoGptField(
+    description_text = DjangoGptField(
         type="textarea",
         field_instruction_name="gpt_instruction",
         gpt_role="You're a real estate agent and you're writing a description for a property.",
@@ -56,7 +56,7 @@ The Django GPT library allows you to create Django model fields that automatical
     
 2.  `description_html` and `description_text`: These fields will be automatically filled with generated text based on the instructions provided in the `gpt_instruction` field.
     
-3.  `field_instruction_name`: This field determines where to take the instruction for text generation. If you change the `field_instruction_name` value, automatic regeneration of text will occur for fields that reference this instruction. GPT also takes into account the previous value that was in fields of type `DjapgoGptField`. If you clear the value and change the instruction, text generation will be based solely on the new instruction. If there are no changes in the instruction, text regeneration will not occur. This allows you to preserve previous versions of generated text if needed for comparison.
+3.  `field_instruction_name`: This field determines where to take the instruction for text generation. If you change the `field_instruction_name` value, automatic regeneration of text will occur for fields that reference this instruction. GPT also takes into account the previous value that was in fields of type `DjangoGptField`. If you clear the value and change the instruction, text generation will be based solely on the new instruction. If there are no changes in the instruction, text regeneration will not occur. This allows you to preserve previous versions of generated text if needed for comparison.
     
 4.  `gpt_content_length`: This parameter defines the maximum length of generated text. In this example, the maximum length of the text is set to 300 characters. You can customize this parameter according to your needs.
     

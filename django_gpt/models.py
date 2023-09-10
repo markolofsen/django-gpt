@@ -11,7 +11,7 @@ class GptGenerationError(Exception):
     pass
 
 
-class DjapgoGptField(models.Field):
+class DjangoGptField(models.Field):
     def __init__(self, *args,
                  type="text",
                  config_name="default",
